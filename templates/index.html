@@ -11,6 +11,7 @@
     <meta name="description" content="{{ config.description }}">
 
     <link rel="stylesheet" href="{{ get_url(path="main.css", trailing_slash=false) }}">
+    <link rel="stylesheet" href="{{ get_url(path="post-extra.css", trailing_slash=false) }}">
 
     {% if config.generate_feed %}
         <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
@@ -20,9 +21,12 @@
     {% endblock extra_head %}
 </head>
 <body>
+    {% if page.extra.cover is defined %}
+    <div class="cover-image" style="background-image: url({{page.extra.cover}})"></div>
+    {% endif %}
     <a class="skip-main" href="#main">Skip to content</a>
     <div class="container">
-        <header> 
+        <header>
             <h1 class="site-header">
                 <a href="{{ config.base_url }}">{{ config.title }}</a>
             </h1>
