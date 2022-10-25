@@ -2,6 +2,7 @@
 {% extends "index.html" %}
 
 {% block title %}{{ page.title }}{% endblock %}
+{% block description %}<meta name="description" content="{{ page.summary | default(value="") | striptags | trim}}">{% endblock description %}
 
 {% block content %}
 
