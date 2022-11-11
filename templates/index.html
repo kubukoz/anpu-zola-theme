@@ -40,6 +40,13 @@
                 {% endblock sidebar_nav %}
             </nav>
         </header>
+        <div class="search-container">
+            <input id="search" type="search" placeholder="Search">
+            <div class="search-results">
+                <div class="search-results__items">
+                </div>
+            </div>
+        </div>
         <main id="main" tabindex="-1">
             {% block content %}
                 {% if paginator.pages %}
@@ -76,5 +83,8 @@
     ga('create', '{{ config.extra.google_analytics }}', 'auto');
     ga('send', 'pageview');
 
-    </script>
+</script>
+<script type="text/javascript" src="{{ get_url(path="elasticlunr.min.js", trailing_slash=false) }}"></script>
+<script type="text/javascript" src="{{ get_url(path="search_index.en.js", trailing_slash=false) }}"/></script>
+<script type="text/javascript" src="{{ get_url(path="search.js", trailing_slash=false) }}"/></script>
 </html>
