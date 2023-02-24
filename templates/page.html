@@ -26,7 +26,7 @@
 
   var disqus_config = function () {
     this.page.url = "{{config.base_url | safe}}";
-    this.page.identifier = '{{page.path | trim_end_matches(pat="/") | safe}}';
+    this.page.identifier = '{{config.base_url | safe}}{{page.path | trim_end_matches(pat="/") | safe}}';
   };
 
   (function () {
